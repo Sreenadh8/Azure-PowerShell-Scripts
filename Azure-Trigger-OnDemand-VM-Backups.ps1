@@ -33,7 +33,7 @@ $RetailTill = $currentDate.AddDays($RetentionDays)
 Write-Output ("Recoverypoints will be retained till " + $RetailTill)
 
 #Collect Vault Details
-$vault = Get-AzRecoveryServicesVault -Vault-RG $Vault-RG -Name $vaultName
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName $Vault-RG -Name $vaultName
 $vault | Set-AzRecoveryServicesVaultContext
 foreach($vm in $vmlist)
 { 
