@@ -39,7 +39,7 @@ $OSsnapshot =  New-AzSnapshotconfig -SourceUri $OSdisk.Id -CreateOption Copy -Lo
 
 New-AzSnapshot -Snapshot $OSsnapshot -SnapshotName $OsSnapshotName -ResourceGroupName $vmproperties.ResourceGroupName -Verbose | Out-Null
 
-$tag = @{VM_Name = "$vmproperties.name";created_date="$((Get-Date -f MM-dd-yyyy_HH_mm_ss))";backup_type="diks-snapshot"}
+$tag = @{VM_Name = "$vmproperties.name";created_date="$((Get-Date -f MM-dd-yyyy_HH_mm_ss))";backup_type="disk-snapshot"}
 
 $NewOSsnapshot = Get-AzSnapshot -Name $OsSnapshotName -ResourceGroupName $vmproperties.ResourceGroupName
 
@@ -71,7 +71,7 @@ Write-Output "VM $($vmproperties.name) Data Disk Snapshots Begin"
 
             New-AzSnapshot -ResourceGroupName $vmproperties.ResourceGroupName -SnapshotName $snapshotNameData -Snapshot $DataDiskSnapshotConfig | Out-Null
          
-$tag = @{VM_Name = "$vmproperties.name";created_date="$((Get-Date -f MM-dd-yyyy_HH_mm_ss))";backup_type="diks-snapshot"}
+$tag = @{VM_Name = "$vmproperties.name";created_date="$((Get-Date -f MM-dd-yyyy_HH_mm_ss))";backup_type="disk-snapshot"}
 
 $NewDataDiskSnapshot = Get-AzSnapshot -Name $snapshotNameData -ResourceGroupName $vmproperties.ResourceGroupName
 
