@@ -1,4 +1,16 @@
+###############################################################
+# 
+#  Author : Sreenadhreddy@hotmail.com    
+#  Description : This PowerShell script will help you to stop multiple VM's...
+#  
+#  Pre-requisites:
+#  1) AZ PowerShell Module ( install-module -Name Az -Force )
+# 
+#  
+###############################################################
 
+#Provide the Subscription name, VMnames and RG as variable inputs
+# Enter the VMnames variable in this array format :  ['vm1','vm2','vm3']
 
 Param
 (
